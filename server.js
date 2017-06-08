@@ -38,19 +38,4 @@ app.listen(process.env.PORT);
 
 console.log("Express app running on heroku");
 
-var db = mongoose.createConnection('mongodb://localhost/todolist',function(err){
-    if(err){
-        console.log(err);
-    } else{
-        console.log('Connected to todo list db!');
-    }
-});
-
-var todoSchema = mongoose.Schema({
-    item: String,
-    created: {type: Date, default: Date.now}
-});
-
-var Item = db.model('Item', todoSchema);
-
 module.exports = app;
